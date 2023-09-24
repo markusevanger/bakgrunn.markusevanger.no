@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import Tavle from './components/Tavle'
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
   return (
     <>
       <Tavle stopId="NSR:StopPlace:6009"></Tavle>
-
     </>
   )
 }

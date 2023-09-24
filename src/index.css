@@ -1,5 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 
 body {
   background-image: url(assets/51_upscaled.png);
   background-size: cover;
 }
+
+.boks {
+  background-color: rgba(0, 0, 0, 0.209);
+  display: flex;
+  justify-content:space-between;
+  width: 500px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 10px;
+
+  font-weight: normal;
+  font-family: 'Fira Sans', sans-serif;
+  color:white;  
+}
+
+.linjeOgNavn{
+  display: flex;
+  flex-direction:row;
+  padding: 0;
+  align-items: center;
+}
+
+.navn {
+  font-size: 1.5em;
+}
+.tid {
+  font-size: 1.5em;
+}
+
+.linjeDiv{
+  background-color: #ec700c;
+  border-radius: 0.3em;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 10px;
+}
+
+.linje{
+  padding: 0;
+  margin: 0;
+  height:fit-content;
+}
+
+

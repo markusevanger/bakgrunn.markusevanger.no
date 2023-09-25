@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { useSettings } from './SettingsContext';
 import Avgang from './Avgang';
 
+
+
 const Tavle = ({ stopId }) => {
+
+  const { settings } = useSettings();
+
   const [busStopData, setBusStopData] = useState(null);
 
   const fetchData = () => {
-    // Define the GraphQL query as a template string
+    
+    
+    // GraphQL quiery string for å hente ruter data
     const query = `
       {
-        stopPlace(id: "NSR:StopPlace:6009") {
+        stopPlace(id: "${settings.stopPlaceId}") {
           name
-          estimatedCalls(timeRange: 72100, numberOfDepartures: 4) {     
+          estimatedCalls(timeRange: 72100, numberOfDepartures: ${settings.numberOfDepartures}) {     
             realtime
             aimedArrivalTime
             aimedDepartureTime
@@ -45,13 +53,13 @@ const Tavle = ({ stopId }) => {
 
     const headers = {
       'Content-Type': 'application/json',
-      'ET-Client-Name': 'YourAppName', // Replace with your app name
+      'ET-Client-Name': 'bakgrunn.markusevanger.no',
     };
 
     const requestOptions = {
       method: 'POST',
       headers,
-      body: JSON.stringify({ query, variables: { stopId } }), // Include the query and variables
+      body: JSON.stringify({ query, variables: { stopId } }),
     };
 
     fetch(apiUrl, requestOptions)
@@ -86,14 +94,15 @@ const Tavle = ({ stopId }) => {
     return <div>Data not available.</div>;
   }
 
-  // You can create separate components to display different parts of the data
+
+
+
+  // Tavle komponent. 
   return (
-    <div>
-      
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM7.5 8C7.22386 8 7 8.22386 7 8.5V9.5C7 9.77614 7.22386 10 7.5 10H11V17.5C11 17.7761 11.2239 18 11.5 18H12.5C12.7761 18 13 17.7761 13 17.5V10H16.5C16.7761 10 17 9.77614 17 9.5V8.5C17 8.22386 16.7761 8 16.5 8H7.5Z" fill="white"></path>
+    <div className='heleTavle'>
       <h1 className='stoppeplass'>{busStopData.data.stopPlace.name}</h1>
       {busStopData.data.stopPlace.estimatedCalls.map((avgang, index) => (
-        <Avgang name={avgang.destinationDisplay.frontText} arrival={avgang.expectedArrivalTime} linje={avgang.serviceJourney.journeyPattern.line.id} />
+        <Avgang name={avgang.destinationDisplay.frontText} arrival={avgang.expectedArrivalTime} linje={avgang.serviceJourney.journeyPattern.line.id} type={avgang.serviceJourney.journeyPattern.line.transportMode} />
       ))}
     </div>
   );

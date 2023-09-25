@@ -1,0 +1,59 @@
+/* SettingsMenu.css */
+.settings-menu {
+    position: relative;
+  }
+  
+  .settings-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+    background-color: transparent; /* Make it invisible initially */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .settings-icon.active {
+    background-color: #ccc; /* Change background color when active */
+  }
+
+  .settings-icon:hover {
+    background-color: #ccc; /* Change background color when active */
+  }
+  
+  .menu {
+    position: absolute;
+    top: 40px; /* Adjust the menu position */
+    right: 10px;
+    background-color: #fff; /* Background color of the menu */
+    border: 1px solid #ccc; /* Border styles */
+    padding: 10px; /* Adjust padding */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Optional box shadow */
+    z-index: 999; /* Ensure it's on top of other content */
+    display: none; /* Initially hide the menu */
+  }
+  
+  /* Show the menu when the settings icon is clicked */
+  .settings-icon.active + .menu {
+    display: block;
+  }
+  
+  /* Show the menu when hovering over the settings icon */
+  .settings-icon:hover + .menu {
+    display: block;
+  }
+  
+  /* Style for menu items */
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 5px 0;
+    cursor: pointer;
+  }
+  
+  /* Add more styling as needed */
+  

@@ -1,59 +1,149 @@
-/* SettingsMenu.css */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Fira+Sans&display=swap');
+
 .settings-menu {
-    position: relative;
-  }
-  
-  .settings-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 40px; /* Adjust icon size */
-    height: 40px;
-    background-color: transparent; /* Make it invisible initially */
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .settings-icon.active {
-    background-color: #ccc; /* Change background color when active */
+  position: relative;
+}
+
+.settings-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  /* Adjust icon size */
+  height: 40px;
+  cursor: pointer;
+
+  opacity: 0%;
+  background-image: url('/settings-icon.svg');
+  transition: ease-in-out 0.15s;
+}
+
+.settings-icon.active {
+  background-image: url('/kryss.svg');
+  opacity: 100%;
+}
+
+.settings-icon:hover {
+  opacity: 100%;
+  animation: spinn 2s infinite linear;
+}
+
+@keyframes spinn {
+
+  from {
+    transform: rotate(0deg);
   }
 
-  .settings-icon:hover {
-    background-color: #ccc; /* Change background color when active */
+  to {
+    transform: rotate(360deg);
   }
+
+}
+
+
+
+.menu {
+  display: none;
+  /* Initially hide the menu */
+  position: absolute;
+  top: 60px;
+  /* Adjust the menu position */
+  right: 10px;
+
+  width: 500px;
+  height: auto;
+
+  background-color: #ffffff;
+  /* Background color of the menu */
+  padding: 50px;
+  padding-bottom: 0;
+  /* Adjust padding */
+  border-radius: 33px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  /* Optional box shadow */
+  z-index: 999;
+  /* Ensure it's on top of other content */
+
+}
+
+/* Show the menu when the settings icon is clicked */
+.settings-icon.active+.menu {
+  display: block;
+}
+
+/* Show the menu when hovering over the settings icon */
+.settings-icon:hover+.menu {
+  display: block;
+}
+
+/* Style for menu items */
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 5px 0;
+  cursor: pointer;
+  font-family: 'fira sans';
+  font-size: 10px;
+}
+
+
+.savebutton {
+  border-radius: 50px;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  min-width: 120px;
+  height: 40px;
+  background-color: #ff2929;
+  border: #ff2929 1px solid;
+  font-family: 'Fira Mono', monospace;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition-duration: 0.05s;
+}
+
+input[type="file"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.headerIns {
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+}
+
+.hilsen {
+  font-family: 'Fira Sans', sans-serif;
+  color: gray;
+  font-size: 14px;
+}
+
+.hilsenDiv{
+  margin-top: 20px;
+  display: flex;
+  height: 100px;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.logoroed {
+  fill: #ff2929;
+  width: 80px;
+}
+
+#logoroed:hover {
+  animation: spinn 1s ease-in-out;
+}
+
+@keyframes spinn {
+  0% {transform: rotate(0deg);}
+  60% { transform: rotate(369deg);}
+  80% { transform: rotate(355deg);}
+  100% {transform: rotate(360deg);}
   
-  .menu {
-    position: absolute;
-    top: 40px; /* Adjust the menu position */
-    right: 10px;
-    background-color: #fff; /* Background color of the menu */
-    border: 1px solid #ccc; /* Border styles */
-    padding: 10px; /* Adjust padding */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Optional box shadow */
-    z-index: 999; /* Ensure it's on top of other content */
-    display: none; /* Initially hide the menu */
-  }
-  
-  /* Show the menu when the settings icon is clicked */
-  .settings-icon.active + .menu {
-    display: block;
-  }
-  
-  /* Show the menu when hovering over the settings icon */
-  .settings-icon:hover + .menu {
-    display: block;
-  }
-  
-  /* Style for menu items */
-  .menu ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .menu li {
-    padding: 5px 0;
-    cursor: pointer;
-  }
-  
-  /* Add more styling as needed */
-  
+}

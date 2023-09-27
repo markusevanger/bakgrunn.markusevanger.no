@@ -1,16 +1,21 @@
-import { useState } from 'react'
 import Tavle from './components/Tavle'
 import SettingsMenu from './components/SettingsMenu';
-import { SettingsProvider } from './components/SettingsContext';
+import Background from './components/Background';
+import { SettingsProvider, useSettings } from './components/SettingsContext'; // Import SettingsProvider and useSettings
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  console.log("Versjon: 6");
 
   return (
     <>
       <SettingsProvider>
         <SettingsMenu/>
-        <Tavle className="tavle" stopId="NSR:StopPlace:6009"></Tavle>
+        <Tavle className="tavle"></Tavle>
+        <Background className="bakgrunn" />
+              
       </SettingsProvider>
     </>
   )

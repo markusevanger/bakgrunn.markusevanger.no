@@ -2,17 +2,18 @@ function Avgang({name, arrival, linje, type}) {
 
     let timeDifference = new Date(arrival) - new Date(); 
     const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
-
-    console.log(name, minutes, " minutter igjen");
     let tid;
 
-    if (minutes <= 0){
-        tid = "nå";
+    if (minutes > 60) {
+        tid = timeDifference;
+    }
+
+    else if (minutes <= 0){
+        tid = "Nå";
     }
     else if (minutes == 1){
         tid = minutes + " minutt"
     }
-
     else {
         tid = minutes + " minutter";
     }

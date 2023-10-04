@@ -92,3 +92,50 @@ body{
   background-position: center center;
   background-size: cover;
 }
+
+
+.mobilCoverDiv{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #FFFDF5;
+  color: #ff2929;
+  display: none;
+}
+
+.logoroed {
+  fill: #ff2929;
+  width: 80px;
+}
+
+.logoroed:hover {
+  animation: spinn 1.16s ease-in-out;
+}
+
+@keyframes spinn {
+  0% {transform: rotate(0deg);}
+  60% { transform: rotate(369deg);}
+  80% { transform: rotate(355deg);}
+  100% {transform: rotate(360deg);}
+  
+}
+
+@media (orientation: portrait) {
+
+  .heleTavle{
+    display: none;
+  }
+
+  .bakgrunn {
+    display: none;
+  }
+
+  .mobilCoverDiv{
+    padding-top: 200px;
+    display: block;
+    text-align: center;
+
+    font-family: "Fira Sans";
+  }
+ 
+}

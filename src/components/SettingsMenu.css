@@ -136,7 +136,7 @@ input[type="file"] {
   width: 80px;
 }
 
-#logoroed:hover {
+.logoroed:hover {
   animation: spinn 1s ease-in-out;
 }
 

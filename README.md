@@ -1,8 +1,6 @@
-# React + Vite
+# Ruter tabell + Konfigurerbar bakgrunn
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[bakgrunn.markusevanger.no](https://bakgrunn.markusevanger.no/)
 
-Currently, two official plugins are available:
+For å endre bakgrunn og andre instillinger, ta musen opp i høyre hjørne.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
